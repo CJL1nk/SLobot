@@ -2,14 +2,19 @@
 // Created by CJ on 9/12/26.
 //
 
-#ifndef PIPICO_TYPES_H
-#define PIPICO_TYPES_H
+#ifndef SLOBOT_TYPES_H
+#define SLOBOT_TYPES_H
 
 typedef enum {
     WORRIED,
     SLEEPING,
     NORMAL,
-    HAPPY
+    HAPPY,
+    HAPPY_IDLE,
+    ANGRY,
+    ANGRY_IDLE,
+    SAD,
+    SAD_IDLE
 } State;
 
-#endif //PIPICO_TYPES_H
+#endif //SLOBOT_TYPES_H

@@ -10,7 +10,6 @@
 #include "animations.h"
 #include "types.h"
 
-const uint8_t num_chars_per_disp[]={6,7,4,5};
 ssd1306_t disp;
 
 #define SLEEPTIME 25
@@ -20,23 +19,27 @@ int setup(void);
 void play_animation(const animation* ani, int offset);
 void write_word(const char* word, uint32_t time);
 
+uint64_t total_cycles = 0;
+
 int main() {
 
     setup();
     State prev_state = NORMAL;
-    State state = WORRIED;
+    State state = NORMAL;
 
     while (true) {
 
         switch (state) {
+
             case NORMAL:
                 play_animation(&normal, 0);
                 break;
             case WORRIED:
-                if (prev_state == WORRIED) { play_animation(&worried, 2); }
+                if (prev_state == WORRIED) { play_animation(&worried, 3); }
                 else { play_animation(&worried, 0); }
-                write_word("!HELP! *~*", 1000);
-                play_animation(&worried, 2);
+
+                write_word("!HELP! *v*", 1000);
+                play_animation(&worried, 3);
                 break;
 
             default:
@@ -45,13 +48,16 @@ int main() {
 
         prev_state = state;
         update_state(&state);
+        total_cycles++;
     }
 
     return 0;
 }
 
 void update_state(State* state) {
-
+    if (total_cycles > 10) {
+        *state = WORRIED;
+    }
 }
 
 int setup() {

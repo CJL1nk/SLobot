@@ -2,8 +2,8 @@
 // Created by CJ on 9/13/26.
 //
 
-#ifndef PIPICO_FRAMES_H
-#define PIPICO_FRAMES_H
+#ifndef SLOBOT_FRAMES_H
+#define SLOBOT_FRAMES_H
 
 typedef struct {
     uint8_t frame[IMAGE_SIZE];
@@ -394,4 +394,4 @@ frame worried_4 = {
 0xff,0xff
 };
 
-#endif //PIPICO_FRAMES_H
+#endif //SLOBOT_FRAMES_H
