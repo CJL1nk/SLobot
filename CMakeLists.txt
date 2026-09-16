@@ -35,10 +35,19 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(SLobot slobot.c
+add_executable(SLobot src/slobot.c
         external/pico-ssd1306/ssd1306.c
-        types.h
-        frames.h)
+
+        src/modules/display.c
+        src/modules/display.h
+        src/modules/imu.h
+        src/modules/imu.c
+
+        src/types.h
+        src/frames.h
+        src/frames.c
+        src/animations.c
+)
 
 pico_set_program_name(SLobot "SLobot")
 pico_set_program_version(SLobot "0.1")
