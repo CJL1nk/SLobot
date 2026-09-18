@@ -48,10 +48,9 @@ int main() {
 void update_state(State* state) {
 
     const float roll = get_roll();
+    const float g = get_gs();
 
-    printf("Roll: %f\n", roll);
-
-    if (fabsf(roll) > 140.f) {
+    if (fabsf(roll) > 140.f || g > 1.5f) {
         *state = WORRIED;
     } else {
         *state = NORMAL;

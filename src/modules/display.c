@@ -1,6 +1,7 @@
 //
 // Created by CJ on 9/16/26.
 //
+// Currently uses the SSD1306 blue/yellow display
 
 #include "display.h"
 #include "hardware/i2c.h"

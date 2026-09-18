@@ -19,5 +19,6 @@
 void init_imu();
 
 float get_roll();
+float get_gs();
 
 #endif //SLOBOT_IMU_H
